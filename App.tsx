@@ -10,6 +10,7 @@ import {
 import { encode as btoa } from "base-64";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
+import * as Constants from "expo-constants";
 
 interface NominatimResult {
   place_id: number;
@@ -66,7 +67,11 @@ export default class App extends React.Component<
       latitude: reverseGeocoding.lat,
       license: reverseGeocoding.licence,
       longitude: reverseGeocoding.lon,
-      ...reverseGeocoding.address
+      ...reverseGeocoding.address,
+      deviceId: Constants.default.deviceId,
+      deviceName: Constants.default.deviceName,
+      deviceYearClass: Constants.default.deviceYearClass,
+      systemVersion: Constants.default.systemVersion
     };
     let saveContent = "";
     Object.keys(answer).forEach(key => {
