@@ -7,12 +7,13 @@ import {
   View,
   TextInput
 } from "react-native";
+import { encode as btoa } from "base-64";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 
 interface NominatimResult {
   place_id: number;
-  license: string;
+  licence: string;
   lat: number;
   lon: number;
   display_name: string;
@@ -26,8 +27,21 @@ interface NominatimResult {
     country_code: string;
   };
 }
+interface GitHubContents {
+  name: string;
+  path: string;
+  sha: string;
+  size: number;
+  url: string;
+  type: "file" | "dir" | "symlink" | "submodule";
+  content: string;
+  encoding: string;
+}
 
-export default class App extends React.Component<{}, { token: string, newToken: string }> {
+export default class App extends React.Component<
+  {},
+  { token: string; newToken: string }
+> {
   constructor(props: any) {
     super(props);
     this.state = { token: "", newToken: "" };
@@ -50,10 +64,41 @@ export default class App extends React.Component<{}, { token: string, newToken: 
       heading: location.coords.heading,
       speed: location.coords.speed,
       latitude: reverseGeocoding.lat,
-      license: reverseGeocoding.license,
+      license: reverseGeocoding.licence,
       longitude: reverseGeocoding.lon,
       ...reverseGeocoding.address
     };
+    let saveContent = "";
+    Object.keys(answer).forEach(key => {
+      saveContent += `${key}: ${answer[key]}\n`;
+    });
+    const currentContents = (await (await fetch(
+      `https://api.github.com/repos/AnandChowdhary/finding-anand/contents/location.yml`,
+      {
+        headers: {
+          "User-Agent": "FindingAnand",
+          Authorization: `token ${this.state.token}`
+        }
+      }
+    )).json()) as GitHubContents;
+    await fetch(
+      `https://api.github.com/repos/AnandChowdhary/finding-anand/contents/location.yml`,
+      {
+        method: "PUT",
+        headers: {
+          "User-Agent": "FindingAnand",
+          Authorization: `token ${this.state.token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: `📍 ${reverseGeocoding.display_name}`,
+          content: btoa(saveContent),
+          sha: currentContents.sha
+        })
+      }
+    );
+    alert("Done!");
   }
   async save() {
     this.setState({ token: this.state.newToken });
@@ -67,7 +112,12 @@ export default class App extends React.Component<{}, { token: string, newToken: 
         {!!this.state.token ? (
           <View>
             <Button title="Track" onPress={() => this.track()} />
-            <Button title="Edit token" onPress={() => this.setState({ newToken: this.state.token || "", token: "" })} />
+            <Button
+              title="Edit token"
+              onPress={() =>
+                this.setState({ newToken: this.state.token || "", token: "" })
+              }
+            />
           </View>
         ) : (
           <View>
