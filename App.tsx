@@ -76,7 +76,9 @@ export default class App extends React.Component<
     let saveContent = "";
     Object.keys(answer).forEach(key => {
       saveContent += `${key}: ${
-        typeof answer[key] === "string" ? answer[key].replace("’", "'") : answer[key]
+        typeof answer[key] === "string"
+          ? answer[key].replace("’", "'")
+          : answer[key]
       }\n`;
     });
     const currentContents = (await (await fetch(
