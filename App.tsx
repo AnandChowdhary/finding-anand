@@ -75,7 +75,9 @@ export default class App extends React.Component<
     };
     let saveContent = "";
     Object.keys(answer).forEach(key => {
-      saveContent += `${key}: ${answer[key].replace(/[^\w\s]/gi, "")}\n`;
+      saveContent += `${key}: ${
+        typeof answer[key] === "string" ? answer[key].replace("’", "'") : answer[key]
+      }\n`;
     });
     const currentContents = (await (await fetch(
       `https://api.github.com/repos/AnandChowdhary/finding-anand/contents/location.yml`,
