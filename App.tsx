@@ -39,20 +39,48 @@ interface GitHubContents {
   encoding: string;
 }
 
+const DEFAULT_REPO = "AnandChowdhary/finding-anand";
+const DEFAULT_FILE = "location.yml";
+
 export default class App extends React.Component<
   {},
-  { token: string; newToken: string }
+  {
+    token: string;
+    newToken: string;
+    file: string;
+    repo: string;
+    newRepository: string;
+    newFile: string;
+  }
 > {
   constructor(props: any) {
     super(props);
-    this.state = { token: "", newToken: "" };
+    this.state = {
+      token: "",
+      newToken: "",
+      file: DEFAULT_FILE,
+      repo: DEFAULT_REPO,
+      newRepository: "",
+      newFile: ""
+    };
   }
   async componentDidMount() {
     const token = await AsyncStorage.getItem("token");
-    this.setState({ token });
+    const repo = await AsyncStorage.getItem("repo");
+    const file = await AsyncStorage.getItem("file");
+    this.setState({
+      token,
+      repo: repo || DEFAULT_REPO,
+      file: file || DEFAULT_FILE,
+      newFile: file || DEFAULT_FILE,
+      newToken: token,
+      newRepository: repo || DEFAULT_REPO
+    });
   }
   async track() {
     if (!this.state.token) alert("We couldn't find a GitHub token!");
+    if (!this.state.repo) alert("We couldn't find a GitHub repository!");
+    if (!this.state.file) alert("We couldn't find a GitHub file!");
     const { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== "granted") alert("We couldn't get location permission!");
     const location = await Location.getCurrentPositionAsync();
@@ -82,7 +110,7 @@ export default class App extends React.Component<
       }\n`;
     });
     const currentContents = (await (await fetch(
-      `https://api.github.com/repos/AnandChowdhary/finding-anand/contents/location.yml`,
+      `https://api.github.com/repos/${this.state.repo}/contents/${this.state.file}`,
       {
         headers: {
           "User-Agent": "FindingAnand",
@@ -91,7 +119,7 @@ export default class App extends React.Component<
       }
     )).json()) as GitHubContents;
     await fetch(
-      `https://api.github.com/repos/AnandChowdhary/finding-anand/contents/location.yml`,
+      `https://api.github.com/repos/${this.state.repo}/contents/${this.state.file}`,
       {
         method: "PUT",
         headers: {
@@ -110,8 +138,14 @@ export default class App extends React.Component<
     alert("Done!");
   }
   async save() {
-    this.setState({ token: this.state.newToken });
+    this.setState({
+      token: this.state.newToken,
+      repo: this.state.newRepository,
+      file: this.state.newFile
+    });
     AsyncStorage.setItem("token", this.state.newToken);
+    AsyncStorage.setItem("file", this.state.newFile);
+    AsyncStorage.setItem("repo", this.state.newRepository);
   }
   render() {
     return (
@@ -122,7 +156,7 @@ export default class App extends React.Component<
           <View>
             <Button title="Track" onPress={() => this.track()} />
             <Button
-              title="Edit token"
+              title="Edit settings"
               onPress={() =>
                 this.setState({ newToken: this.state.token || "", token: "" })
               }
@@ -130,11 +164,29 @@ export default class App extends React.Component<
           </View>
         ) : (
           <View>
-            <Text>No token found!</Text>
+            <Text style={{ marginBottom: "5%" }}>
+              Update your settings below
+            </Text>
             <TextInput
-              style={{ height: 40, borderColor: "gray", borderWidth: 1 }}
+              accessibilityLabel="Token"
+              placeholder="Token"
+              style={styles.input}
               onChangeText={newToken => this.setState({ newToken })}
               value={this.state.newToken}
+            />
+            <TextInput
+              accessibilityLabel="Repository"
+              placeholder="Repository"
+              style={styles.input}
+              onChangeText={newRepository => this.setState({ newRepository })}
+              value={this.state.newRepository}
+            />
+            <TextInput
+              accessibilityLabel="File"
+              placeholder="File"
+              style={styles.input}
+              onChangeText={newFile => this.setState({ newFile })}
+              value={this.state.newFile}
             />
             <Button title="Save" onPress={() => this.save()} />
           </View>
@@ -157,5 +209,13 @@ const styles = StyleSheet.create({
   },
   text: {
     marginBottom: "10%"
+  },
+  input: {
+    height: 40,
+    borderRadius: 2,
+    padding: "2% 5%",
+    marginBottom: "5%",
+    borderColor: "#eee",
+    borderWidth: 0.5
   }
 });
