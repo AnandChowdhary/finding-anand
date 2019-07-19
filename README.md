@@ -10,6 +10,8 @@ A tiny app for smartphones to help you keep track as you move by committing your
 2. Add your GitHub personal access token, repository name, and file name.
 3. Click on "Track"
 
+![Screenshots of the Tracking Anand app](https://user-images.githubusercontent.com/2841780/61516007-97dd0d80-aa21-11e9-9aa3-22cda475a6a0.png)
+
 ## 🛠 Development
 
 This app uses [Expo](https://expo.io/), so get started by installing dependencies:
