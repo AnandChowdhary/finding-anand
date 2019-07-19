@@ -100,6 +100,7 @@ export default class App extends React.Component<
         repeat: "hour"
       }
     );
+    this.track();
   }
   async track() {
     if (!this.state.token) return alert("We couldn't find a GitHub token!");
