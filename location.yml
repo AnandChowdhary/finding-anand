@@ -1,15 +1,15 @@
-altitude: 192.95367431640625
+altitude: 223.03515625
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5703546666206
+latitude: 28.5360628399328
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.316974848309
-commercial: Sector 16A
-city: Noida
-county: Ghaziabad
-state: Uttar Pradesh
-postcode: 201301
+longitude: 77.2426423393308
+road: Road Number 5
+locality: Greater Kailash II
+state_district: South East Delhi
+state: Delhi
+postcode: 110048
 country: India
 country_code: in
 deviceId: 868747BC-86B8-43A0-B083-C4E4F7F32A7C
