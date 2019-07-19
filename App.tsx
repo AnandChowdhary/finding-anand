@@ -5,11 +5,13 @@ import {
   Text,
   Button,
   View,
+  SafeAreaView,
   TextInput
 } from "react-native";
 import { encode as btoa } from "base-64";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
+import { Notifications } from "expo";
 import * as Constants from "expo-constants";
 
 interface NominatimResult {
@@ -38,6 +40,14 @@ interface GitHubContents {
   content: string;
   encoding: string;
 }
+enum Status {
+  EMPTY = "Get started by pressing the button below",
+  LOCATING = "Locating you via GPS...",
+  GEOCODING = "Reverse geocoding your location...",
+  FETCHING = "Fetching repository details...",
+  COMMITTING = "Committing to GitHub...",
+  COMPLETED = "Completed!"
+}
 
 const DEFAULT_REPO = "AnandChowdhary/finding-anand";
 const DEFAULT_FILE = "location.yml";
@@ -51,6 +61,7 @@ export default class App extends React.Component<
     repo: string;
     newRepository: string;
     newFile: string;
+    status: Status;
   }
 > {
   constructor(props: any) {
@@ -61,7 +72,8 @@ export default class App extends React.Component<
       file: DEFAULT_FILE,
       repo: DEFAULT_REPO,
       newRepository: "",
-      newFile: ""
+      newFile: "",
+      status: Status.EMPTY
     };
   }
   async componentDidMount() {
@@ -76,14 +88,29 @@ export default class App extends React.Component<
       newToken: token,
       newRepository: repo || DEFAULT_REPO
     });
+    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+    if (status !== "granted")
+      return alert("We couldn't get notification permission!");
+    await Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Finding Anand",
+        body: "It's been an hour, tap here to track your location."
+      },
+      {
+        repeat: "hour"
+      }
+    );
   }
   async track() {
-    if (!this.state.token) alert("We couldn't find a GitHub token!");
-    if (!this.state.repo) alert("We couldn't find a GitHub repository!");
-    if (!this.state.file) alert("We couldn't find a GitHub file!");
+    if (!this.state.token) return alert("We couldn't find a GitHub token!");
+    if (!this.state.repo) return alert("We couldn't find a GitHub repository!");
+    if (!this.state.file) return alert("We couldn't find a GitHub file!");
+    this.setState({ status: Status.LOCATING });
     const { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== "granted") alert("We couldn't get location permission!");
+    if (status !== "granted")
+      return alert("We couldn't get location permission!");
     const location = await Location.getCurrentPositionAsync();
+    this.setState({ status: Status.GEOCODING });
     const reverseGeocoding = (await (await fetch(
       `https://nominatim.openstreetmap.org/reverse?lat=${location.coords.latitude}&lon=${location.coords.longitude}&format=json`
     )).json()) as NominatimResult;
@@ -109,6 +136,7 @@ export default class App extends React.Component<
           : answer[key]
       }\n`;
     });
+    this.setState({ status: Status.FETCHING });
     const currentContents = (await (await fetch(
       `https://api.github.com/repos/${this.state.repo}/contents/${this.state.file}`,
       {
@@ -118,6 +146,7 @@ export default class App extends React.Component<
         }
       }
     )).json()) as GitHubContents;
+    this.setState({ status: Status.COMMITTING });
     await fetch(
       `https://api.github.com/repos/${this.state.repo}/contents/${this.state.file}`,
       {
@@ -135,7 +164,10 @@ export default class App extends React.Component<
         })
       }
     );
-    alert("Done!");
+    this.setState({ status: Status.COMPLETED });
+    setTimeout(() => {
+      this.setState({ status: Status.EMPTY });
+    }, 2500);
   }
   async save() {
     this.setState({
@@ -149,9 +181,9 @@ export default class App extends React.Component<
   }
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Finding Anand</Text>
-        <Text style={styles.text}>Track your current location</Text>
+        <Text style={styles.text}>{this.state.status}</Text>
         {!!this.state.token ? (
           <View>
             <Button title="Track" onPress={() => this.track()} />
@@ -191,7 +223,7 @@ export default class App extends React.Component<
             <Button title="Save" onPress={() => this.save()} />
           </View>
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }
