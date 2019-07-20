@@ -1,16 +1,15 @@
-altitude: 230.54322856571525
-accuracy: 1.5206394692495857
-heading: 154.01846194457497
-speed: 0
-latitude: 28.5462823643217
+altitude: 223.0000762939453
+accuracy: 65
+heading: -1
+speed: -1
+latitude: 28.5361308678261
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2502228897754
-road: Lala Lajpat Rai Marg
-neighbourhood: East of Kailash
-suburb: Jasola
+longitude: 77.2425818657878
+road: Road Number 5
+locality: Greater Kailash II
 state_district: South East Delhi
 state: Delhi
-postcode: 110019
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
