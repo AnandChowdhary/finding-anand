@@ -1,18 +1,17 @@
-altitude: 223.63177490234375
+altitude: 211.64772033691406
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5361004473647
+latitude: 28.5498369392122
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2426089081228
-road: Road Number 5
-locality: Greater Kailash II
+longitude: 77.2357700349753
+locality: Greater Kailash I
 state_district: South East Delhi
 state: Delhi
 postcode: 110048
 country: India
 country_code: in
-deviceId: 868747BC-86B8-43A0-B083-C4E4F7F32A7C
+deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
 deviceName: Anand's iPhone
 deviceYearClass: 2018
 systemVersion: undefined
