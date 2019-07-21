@@ -1,18 +1,18 @@
-altitude: 226.2860128544271
-accuracy: 5.641115590585687
-heading: 114.1262577492802
-speed: 0
-latitude: 28.5604411
+altitude: 216.6400146484375
+accuracy: 65
+heading: -1
+speed: -1
+latitude: 28.5274184
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2022513
-address29: Akvo South Asia Hub Office
-road: Choudhary Hukum Chand Marg
-neighbourhood: Yusuf Sarai Market
-suburb: Yusuf Sarai
-village: Mehrauli
+longitude: 77.2167797
+books: Bahrisons Booksellers
+road: Birla Vidya Niketan Marg
+suburb: Saket District Centre
+locality: Saket
+hamlet: Saidulajaib Extension
 state_district: South Delhi
 state: Delhi
-postcode: 110029
+postcode: 110062
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
