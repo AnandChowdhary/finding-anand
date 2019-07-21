@@ -1,15 +1,18 @@
-altitude: 223.01878356933594
+altitude: 210.65028381347656
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5361031848865
+latitude: 28.5601082
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2426064745969
-road: Road Number 5
-locality: Greater Kailash II
-state_district: South East Delhi
+longitude: 77.2029493
+hotel: Hotel South Gate
+road: Choudhary Hukum Chand Marg
+neighbourhood: Yusuf Sarai Market
+suburb: Yusuf Sarai
+village: Mehrauli
+state_district: South Delhi
 state: Delhi
-postcode: 110048
+postcode: 110029
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
