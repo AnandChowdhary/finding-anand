@@ -1,18 +1,15 @@
-altitude: 210.9154052734375
-accuracy: 65
+altitude: 206.19578105024993
+accuracy: 6.732923894184273
 heading: -1
 speed: -1
-latitude: 28.5601082
+latitude: 28.565458542773
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2029493
-hotel: Hotel South Gate
-road: Choudhary Hukum Chand Marg
-neighbourhood: Yusuf Sarai Market
-suburb: Yusuf Sarai
-village: Mehrauli
-state_district: South Delhi
-state: Delhi
-postcode: 110029
+longitude: 77.316147734581
+commercial: Sector 16A
+city: Noida
+county: Ghaziabad
+state: Uttar Pradesh
+postcode: 201301
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
