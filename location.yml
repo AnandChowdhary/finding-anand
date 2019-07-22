@@ -1,18 +1,15 @@
-altitude: 210.00160217285156
+altitude: 223.0003662109375
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5513398
+latitude: 28.5360609110271
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2045768
-bakery: Pink Box
-road: Aurobindo Marg
-neighbourhood: Yusuf Sarai Market
-suburb: Lado Sarai
-hamlet: Saidulajaib Extension
-state_district: South Delhi
+longitude: 77.2426440540357
+road: Road Number 5
+locality: Greater Kailash II
+state_district: South East Delhi
 state: Delhi
-postcode: 110016
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
