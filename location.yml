@@ -1,14 +1,16 @@
-altitude: 190.52398681640625
+altitude: 217.55006408691406
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5651749
+latitude: 28.5509013
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.3159344
-city: Noida
-county: Ghaziabad
-state: Uttar Pradesh
-postcode: 201301
+longitude: 77.2509748114096
+parking: Metro Station Parking
+road: Nehru Place Road
+suburb: Nehru Place
+state_district: South East Delhi
+state: Delhi
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
