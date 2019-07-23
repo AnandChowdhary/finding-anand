@@ -1,12 +1,13 @@
-altitude: 223.0003662109375
-accuracy: 65
+altitude: 213.54937744140625
+accuracy: 73.18800607601761
 heading: -1
 speed: -1
-latitude: 28.5360609110271
+latitude: 28.5418777
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2426440540357
-road: Road Number 5
-locality: Greater Kailash II
+longitude: 77.2384553
+station: Greater Kailash
+road: Ho Chi Minh Marg
+neighbourhood: East of Kailash
 state_district: South East Delhi
 state: Delhi
 postcode: 110048
