@@ -1,16 +1,15 @@
-altitude: 235.29672241210938
+altitude: 223.28573608398438
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.4942319
+latitude: 28.536098202203
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.0889407683066
-building: Elev 8
-road: Delhi-Gurugram Expressway
-suburb: Sector 19
-city: Gurugram
-state: Haryana
-postcode: 122010
+longitude: 77.2426109039642
+road: Road Number 5
+locality: Greater Kailash II
+state_district: South East Delhi
+state: Delhi
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
