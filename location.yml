@@ -1,18 +1,16 @@
-altitude: 232.90261920634657
-accuracy: 4.690628809438035
-heading: 211.63745763298354
-speed: 0.8905904574540958
-latitude: 28.54031335
+altitude: 243.68658226262778
+accuracy: 5.252120250041194
+heading: 266.9184966027226
+speed: 0.5620862296603557
+latitude: 28.4942319
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.202274586741
-school: The Mother's International School
-footway: Sunlit Path
-neighbourhood: Adchini
-suburb: Lado Sarai
-hamlet: Saidulajaib Extension
-state_district: South Delhi
-state: Delhi
-postcode: 110016
+longitude: 77.0889407683066
+building: Elev 8
+road: Delhi-Gurugram Expressway
+suburb: Sector 19
+city: Gurugram
+state: Haryana
+postcode: 122010
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
