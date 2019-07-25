@@ -1,15 +1,18 @@
-altitude: 239.3855099370703
-accuracy: 2.603899165551484
-heading: 313.7616589459083
-speed: 0.8310820523566423
-latitude: 28.5355814988494
+altitude: 221.06198120117188
+accuracy: 65
+heading: -1
+speed: -1
+latitude: 28.54031335
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2430043921553
-road: Road Number 5
-locality: Greater Kailash II
-state_district: South East Delhi
+longitude: 77.202274586741
+school: The Mother's International School
+footway: Sunlit Path
+neighbourhood: Adchini
+suburb: Lado Sarai
+hamlet: Saidulajaib Extension
+state_district: South Delhi
 state: Delhi
-postcode: 110048
+postcode: 110016
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
