@@ -1,15 +1,15 @@
-altitude: 205.42980958893895
-accuracy: 2.8910090406834072
+altitude: 213.91737365722656
+accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.5701239728374
+latitude: 28.5418172519677
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.3165520884022
-commercial: Sector 16A
-city: Noida
-county: Ghaziabad
-state: Uttar Pradesh
-postcode: 201301
+longitude: 77.2394136831695
+road: Outer Ring Road
+neighbourhood: East of Kailash
+state_district: South East Delhi
+state: Delhi
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
