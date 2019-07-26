@@ -1,18 +1,15 @@
-altitude: 260.0973205566406
+altitude: 223.3158721923828
 accuracy: 65
 heading: -1
 speed: -1
-latitude: 28.541209
+latitude: 28.5360935578155
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.1548594337529
-mall: Ambience Mall
-house_number: 2
-road: Nelson Mandela Marg
-suburb: Vasant Kunj
-village: Rangpuri
-city: New Delhi
+longitude: 77.2426150326025
+road: Road Number 5
+locality: Greater Kailash II
+state_district: South East Delhi
 state: Delhi
-postcode: 110070
+postcode: 110048
 country: India
 country_code: in
 deviceId: EEEB865E-8929-4208-8CF7-A8F6D8036FEC
