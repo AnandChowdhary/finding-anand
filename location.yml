@@ -1,11 +1,12 @@
-altitude: 228.48926700831638
-accuracy: 35.04770291691488
-heading: 274.0147629945653
-speed: 0.1659601479768753
-latitude: 28.5476843655206
+altitude: 223.74534606933594
+accuracy: 65
+heading: -1
+speed: -1
+latitude: 28.536030174513
 license: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
-longitude: 77.2412063536394
-locality: Greater Kailash I
+longitude: 77.2426713773264
+road: Road Number 5
+locality: Greater Kailash II
 state_district: South East Delhi
 state: Delhi
 postcode: 110048
